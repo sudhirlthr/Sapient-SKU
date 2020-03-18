@@ -37,11 +37,11 @@ public class DiscountPerCustomerType {
 		this.lower = lower;
 		this.higher = higher;
 		this.discount = discount;
-		this.customer_type = customer_type;
+		this.type = customer_type;
 	}
 	private Integer lower;
 	private Integer higher;
 	private Integer discount;
-	private String customer_type;
+	private String type;
 	
 }

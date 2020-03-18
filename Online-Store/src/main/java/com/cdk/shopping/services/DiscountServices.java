@@ -3,6 +3,8 @@
  */
 package com.cdk.shopping.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,5 +23,10 @@ public class DiscountServices {
 	
 	public DiscountPerCustomerType save(DiscountPerCustomerType discountPerCustomerType) {
 		return discountRepository.save(discountPerCustomerType);
+	}
+	
+	public List<DiscountPerCustomerType> findDiscountDetails(String customerType) {
+		List<DiscountPerCustomerType> discountList = discountRepository.findByType(customerType);
+		return discountList;
 	}
 }

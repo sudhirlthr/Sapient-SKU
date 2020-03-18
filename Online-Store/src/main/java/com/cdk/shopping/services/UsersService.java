@@ -3,6 +3,9 @@
  */
 package com.cdk.shopping.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,4 +25,10 @@ public class UsersService {
 	public Users saveUser(Users users) {
 		return userRepository.save(users);
 	}	
+	
+	public Users getUsersDetails(String email) {
+		List<Users> list = userRepository.findByUsername(email);
+		if(list != null) return list.get(0);
+		else return new Users();
+	}
 }

@@ -14,6 +14,7 @@ export class OrdersComponent implements OnInit {
     total: number;
     paid: boolean;
     sub: Subscription;
+    discount: number;
 
     constructor(private ecommerceService: EcommerceServiceService) {
         this.orders = this.ecommerceService.ProductOrders;
@@ -29,7 +30,6 @@ export class OrdersComponent implements OnInit {
 
     pay() {
         this.paid = true;
-        console.log("ordes : "+this.orders);
         this.ecommerceService.saveOrder(this.orders).subscribe();
     }
 
@@ -39,4 +39,8 @@ export class OrdersComponent implements OnInit {
         });
     }
 
+    disco() {
+        this.ecommerceService.DiscountOnTotal
+        this.discount = this.ecommerceService.dicountOnTotal;
+    }
 }

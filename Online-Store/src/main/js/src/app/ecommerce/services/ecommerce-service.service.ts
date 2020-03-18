@@ -11,6 +11,7 @@ export class EcommerceServiceService {
 
   private productsUrl = "/api/items";
     private ordersUrl = "/api/orders";
+    private discountUrl = "/api/discount"
 
     private productOrder: ItemsOrder;
     private orders: ItemsOrders = new ItemsOrders();
@@ -20,6 +21,7 @@ export class EcommerceServiceService {
     private totalSubject = new Subject();
 
     private total: number;
+    public dicountOnTotal: number;
 
     ProductOrderChanged = this.productOrderSubject.asObservable();
     OrdersChanged = this.ordersSubject.asObservable();
@@ -61,5 +63,13 @@ export class EcommerceServiceService {
     set Total(value: number) {
         this.total = value;
         this.totalSubject.next();
+    }
+
+    get DiscountOnTotal() {
+        return this.dicountOnTotal;
+    }
+
+    set DiscountOnTotal(total: number){
+        this.dicountOnTotal = Number(this.http.get(this.discountUrl+"/"+this.total));
     }
 }

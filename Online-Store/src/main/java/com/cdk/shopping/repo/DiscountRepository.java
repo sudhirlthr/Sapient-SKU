@@ -3,6 +3,8 @@
  */
 package com.cdk.shopping.repo;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +16,5 @@ import com.cdk.shopping.model.DiscountPerCustomerType;
  */
 @Repository
 public interface DiscountRepository extends JpaRepository<DiscountPerCustomerType, Long>{
-
+	List<DiscountPerCustomerType> findByType(String type);
 }
